@@ -1,3 +1,3 @@
 $(".checkbox").click(function(this) {
-    $(this).addclass("strikethrough")
-})
+    $(".secondary-text").addClass("strikethrough")
+});
