@@ -56,3 +56,7 @@ li {
 p, h1, h2 {
     margin: 4px;
 }
+
+.strikethrough {
+    text-decoration: line-through;
+}
