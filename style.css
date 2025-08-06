@@ -1,3 +1,18 @@
 button {
+    font-family: "Work Sans", sans-serif;
     border-radius: 4px;
+}
+
+body {
+    background-color: rgba(15, 15, 15);
+}
+
+h1, button {
+    background-color: rgba(26, 26, 26);
+    color: rgba(223, 223, 223);
+}
+
+h1 {
+    font-family: "Tomorrow", sans-serif;
+    font-weight: 400;
 }
