@@ -1,18 +1,58 @@
-button {
+/* Color Palette:
+   Accent: 171, 247, 50
+   Secondary: 26, 26, 26
+   Background: 15, 15, 15
+   Text: 223, 223, 223
+*/
+
+h1, h2, button, p, label, hr {
+    color: rgba(223, 223, 223);
     font-family: "Work Sans", sans-serif;
+}
+
+button {
+    color: rgba(171, 247, 50) !important;
+    border-color: rgba(171, 247, 50) !important;
+    background-color: rgba(26, 26, 26);
     border-radius: 4px;
 }
 
 body {
+    margin: 20px;
     background-color: rgba(15, 15, 15);
 }
 
-h1, button {
-    background-color: rgba(26, 26, 26);
-    color: rgba(223, 223, 223);
-}
-
-h1 {
+h1, h2 {
     font-family: "Tomorrow", sans-serif;
     font-weight: 400;
+    text-transform: uppercase;
+}
+
+.cell {
+    background-color: rgba(26, 26, 26);
+    border-radius: 12px;
+    padding: 16px;
+    margin-bottom: 4px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+}
+
+.secondary-text {
+    color: rgba(223, 223, 223, 0.5);
+    font-size: 12px;
+}
+
+.checkbox {
+    color: rgba(171, 247, 50);
+    border-radius: 4px;
+}
+
+li {
+    color: rgba(0, 0, 0, 0);
+    margin: 0px;
+    padding: 4px;
+    list-style-type: none;
+}
+
+p, h1, h2 {
+    margin: 4px;
 }
