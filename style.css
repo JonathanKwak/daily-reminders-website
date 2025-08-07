@@ -59,6 +59,7 @@ p, h1, h2 {
     border-radius: 4px;
     margin-right: 4px;
     transition-duration: 0.2s;
+    font-weight: bold;
 }
 
 .checkbox:hover {
@@ -68,10 +69,9 @@ p, h1, h2 {
 }
 
 .completed-checkbox {
-    color: rgba(223, 223, 223, 0.5) !important;
-    border-color: rgba(223, 223 223, 0.5) !important;
-    border-style: none;
-    background-color: rgba(26, 26, 26);
+    color: rgba(26, 26, 26) !important;
+    border-color: rgba(223, 223, 223, 0) !important;
+    background-color: rgba(223, 223, 223, 0.5);
 }
 
 .add-button  {
