@@ -11,27 +11,35 @@
     <link rel="stylesheet" href="style.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 </head>
-    <button class="add-button">+</button>
+    <button class="sticky-button" id="add-button">+</button>
+    <button class="sticky-button" id="show-reminders">?</button>
     <body>
         <h1>Today's reminders</h1>
         <hr>
         <div class="cell">
-            <h2>Monday, January 2nd 2026</h2>
+            <h2 id="date-title">Monday, January 2nd 2026</h2>
             <p>Here are the tasks for today:</p>
 
             <li>
                 <button class="checkbox">O</button>
                 <button class="checkbox">O</button>
                 <button class="checkbox">O</button> 
-                <label class="secondary-text">Do laundry (0/3)</label>
+                <label 
+                    original-text="Do laundry"
+                    task-count="3"
+                    class="secondary-text">
+
+                    (0/3)
+                </label>
             </li>
 
             <li><button class="checkbox">O</button> <label class="secondary-text">Mark as complete?</label></li>
             <li><button class="checkbox">O</button> <label class="secondary-text">Mark as complete?</label></li>
         </div>
+        <hr>
         <div class="cell">
-            <h2>Tuesday, January 3rd 2026</h2>
-            <p>There are no tasks for this day.</p>
+            <h2>Active reminders</h2>
+            <p class="secondary-text">Add some to begin</p>
         </div>
 
         <script src="script.js"></script>
