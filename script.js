@@ -1,3 +1,5 @@
-$(".checkbox").click(function(this) {
-    $(".secondary-text").addClass("strikethrough")
+$(".checkbox").click(function() {
+    console.log("TRUE!!!")
+    $(this).siblings(".secondary-text").toggleClass("strikethrough");
+    $(this).toggleClass("completed-checkbox");
 });

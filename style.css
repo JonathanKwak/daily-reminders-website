@@ -10,14 +10,6 @@ h1, h2, button, p, label, hr {
     font-family: "Work Sans", sans-serif;
 }
 
-button {
-    color: rgba(171, 247, 50) !important;
-    border-color: rgba(171, 247, 50) !important;
-    border-style: solid;
-    background-color: rgba(26, 26, 26);
-    border-radius: 4px;
-}
-
 body {
     margin: 20px;
     background-color: rgba(15, 15, 15);
@@ -42,11 +34,6 @@ h1, h2 {
     font-size: 12px;
 }
 
-.checkbox {
-    color: rgba(171, 247, 50);
-    border-radius: 4px;
-}
-
 li {
     color: rgba(0, 0, 0, 0);
     margin: 0px;
@@ -60,4 +47,50 @@ p, h1, h2 {
 
 .strikethrough {
     text-decoration: line-through;
+}
+
+.checkbox {
+    color: rgba(171, 247, 50);
+    border-color: rgba(171, 247, 50);
+    border-style: solid;
+    background-color: rgba(26, 26, 26);
+    border-radius: 4px;
+    color: rgba(171, 247, 50);
+    border-radius: 4px;
+    margin-right: 4px;
+    transition-duration: 0.2s;
+}
+
+.checkbox:hover {
+    color: rgba(26, 26, 26);
+    background-color: rgba(171, 247, 50);
+    transition-duration: 0.2s;
+}
+
+.completed-checkbox {
+    color: rgba(223, 223, 223, 0.5) !important;
+    border-color: rgba(223, 223 223, 0.5) !important;
+    border-style: none;
+    background-color: rgba(26, 26, 26);
+}
+
+.add-button  {
+    background-color: rgba(26, 26, 26);
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    width: 50px;
+    height: 50px;
+    font-size: 32px;
+    border-radius: 12px;
+    border-style: none;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+    color: rgba(223, 223, 223);
+    transition-duration: 0.2s;
+}
+
+.add-button:hover {
+    background-color: #a3f744;
+    color: rgba(26, 26, 26);
+    transition-duration: 0.2s;
 }
