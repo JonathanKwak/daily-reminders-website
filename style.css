@@ -13,6 +13,7 @@ h1, h2, button, p, label, hr {
 button {
     color: rgba(171, 247, 50) !important;
     border-color: rgba(171, 247, 50) !important;
+    border-style: solid;
     background-color: rgba(26, 26, 26);
     border-radius: 4px;
 }
