@@ -16,25 +16,21 @@
     <body>
         <h1>Today's reminders</h1>
         <hr>
-        <div class="cell">
+        <div id="task-list" class="cell">
             <h2 id="date-title">Monday, January 2nd 2026</h2>
             <p>Here are the tasks for today:</p>
 
-            <li>
-                <button class="checkbox">O</button>
-                <button class="checkbox">O</button>
-                <button class="checkbox">O</button> 
+            <template id="cell-template"><li>
                 <label 
-                    original-text="Do laundry"
-                    task-count="3"
+                    original-text="template text"
+                    task-count="1"
                     class="secondary-text">
 
                     (0/3)
                 </label>
-            </li>
+            </li></template>
 
-            <li><button class="checkbox">O</button> <label class="secondary-text">Mark as complete?</label></li>
-            <li><button class="checkbox">O</button> <label class="secondary-text">Mark as complete?</label></li>
+            <button id="task-template" class="checkbox" style="display:none">O</button>
         </div>
         <hr>
         <div class="cell">

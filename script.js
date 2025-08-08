@@ -1,23 +1,30 @@
-$(".checkbox").click(function() {
+function checkboxClicked() {
     //$(this).siblings(".secondary-text").toggleClass("strikethrough");
     $(this).toggleClass("completed-checkbox");
     const parentList = $(this).closest("li")
 
     const total = parentList.find(".checkbox").length;
     const checked = parentList.find(".completed-checkbox").length;
+    const label = parentList.find(".secondary-text")
 
-    const original_text = parentList.find(".secondary-text").attr("original-text")
+    const original_text = label.attr("original-text")
 
-    parentList.find(".secondary-text").text(`${original_text} (${checked}/${total})`);
+    label.text(`${original_text} (${checked}/${total})`);
 
     if ($(this).hasClass("completed-checkbox")) {
         $(this).text("X")
     } else {
         $(this).text("O")
     }
-});
 
-$(document).ready(function() {
+    if (total == checked) {
+        label.addClass("strikethrough")
+    } else {
+        label.removeClass("strikethrough")
+    };
+};
+
+function updateTimer() {
     const date = new Date;
     const days = [
         "Sunday", 
@@ -51,4 +58,33 @@ $(document).ready(function() {
 
     full_str = `${dayOfWeek}, ${month} ${day} ${year}`
     $("#date-title").text(full_str);
+};
+
+function createTasks(name, count) {
+    // clone template
+    let $clone = $($("#cell-template").html()); // works if html is complete <li>...</li>
+
+    for (let i = 0; i < count; i++) {
+        let $taskClone = $("#task-template").clone(true, true)
+            .removeAttr("id")
+            .show();
+        $clone.prepend($taskClone);
+    }
+
+    $clone.find(".secondary-text")
+        .attr("original-text", name)
+        .attr("task-count", count)
+        .text(`${name} (0/${count})`);
+
+    $("#task-list").append($clone);
+};
+
+$(document).ready(function() {
+    updateTimer();
+
+    createTasks("Do laundry", 3);
+    createTasks("Make the world a better place", 1);
+    createTasks("Another activity which we must do", 2);
+
+    $(".checkbox").click(checkboxClicked);
 });
