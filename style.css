@@ -69,6 +69,7 @@ p, h1, h2 {
     border-radius: 4px;
     color: rgba(171, 247, 50);
     border-radius: 4px;
+    border-width: 2px;
     margin-right: 4px;
     transition-duration: 0.2s;
     font-weight: bold;
@@ -88,6 +89,20 @@ p, h1, h2 {
     color: rgba(26, 26, 26) !important;
     border-color: rgba(223, 223, 223, 0) !important;
     background-color: rgba(223, 223, 223, 0.5);
+}
+
+.timestamp-tag {
+    border-style: solid;
+    border-width: 2px;
+    border-color: rgba(223, 223, 223);
+    border-radius: 4px;
+    padding-left: 4px;
+    padding-right: 4px;
+    color: rgba(223, 223, 223);
+    font-weight: bold;
+    text-transform: uppercase;
+    background-color: rgba(26, 26, 26);
+    font-size: 20px;
 }
 
 .sticky-button {
