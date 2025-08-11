@@ -84,6 +84,15 @@ function createTodaysTask(name, count) {
 function deleteTask() {
     const parentTask = $(this).closest(".created-task")
     parentTask.remove()
+    
+    const taskList = $("#created-task-list");
+    const total = taskList.find(".created-task").length;
+
+    if (total === 0) {
+        $("#empty-message").show();
+    } else {
+        $("#empty-message").hide();
+    }
 }
 
 // create a singular task
@@ -95,10 +104,13 @@ function addTask(name) {
     $clone.find(".delete-button").click(deleteTask)
 
     $("#created-task-list").append($clone)
+    $("#empty-message").hide()
 }
 
 function onDocumentReady() {
     updateTimer();
+
+    $("#empty-message").show()
 
     createTodaysTask("Do laundry", 3);
     createTodaysTask("Make the world a better place", 1);
