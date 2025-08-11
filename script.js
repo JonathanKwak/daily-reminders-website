@@ -60,7 +60,9 @@ function updateTimer() {
     $("#date-title").text(full_str);
 };
 
-function createTasks(name, count) {
+// this is for today's tasks
+// gotta get the data from localStorage or something
+function createTodaysTask(name, count) {
     // clone template
     let $clone = $($("#cell-template").html()); // works if html is complete <li>...</li>
 
@@ -79,12 +81,31 @@ function createTasks(name, count) {
     $("#task-list").append($clone);
 };
 
-$(document).ready(function() {
+function deleteTask() {
+    const parentTask = $(this).closest(".created-task")
+    parentTask.remove()
+}
+
+// create a singular task
+// more data will be provided later in development
+function addTask(name) {
+    // created-task-template
+    let $clone = $($("#created-task-template").html());
+
+    $clone.find(".delete-button").click(deleteTask)
+
+    $("#created-task-list").append($clone)
+}
+
+function onDocumentReady() {
     updateTimer();
 
-    createTasks("Do laundry", 3);
-    createTasks("Make the world a better place", 1);
-    createTasks("Another activity which we must do", 2);
+    createTodaysTask("Do laundry", 3);
+    createTodaysTask("Make the world a better place", 1);
+    createTodaysTask("Another activity which we must do", 2);
 
+    $("#add-button").click(addTask)
     $(".checkbox").click(checkboxClicked);
-});
+}
+
+$(document).ready(onDocumentReady)

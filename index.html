@@ -33,17 +33,17 @@
             <button id="task-template" class="checkbox" style="display:none">O</button>
         </div>
         
-        <div class="cell">
+        <div class="cell" id="created-task-list">
             <h2>Active tasks</h2>
             <p class="secondary-text" id="empty-message" style="display: none">Add some to begin</p>
-            <li>
-                <button id="delete-button">
-                    <img id="delete-icon" src="assets/trash-can.svg">
+            <template id="created-task-template"><li class="created-task">
+                <button class="delete-button">
+                    <img class="delete-icon" src="assets/trash-can.svg">
                 </button>
                 <label class="timestamp-tag">Every day</label>
                 <label class="timestamp-tag">3</label>
                 <label class="secondary-text">Do laundry</label>
-            </li>
+            </li></template>
         </div>
 
         <script src="script.js"></script>
