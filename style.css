@@ -10,6 +10,10 @@ h1, h2, button, p, label, hr {
     font-family: "Work Sans", sans-serif;
 }
 
+button {
+    cursor: pointer;
+}
+
 body {
     margin: 20px;
     background-color: rgba(15, 15, 15);
