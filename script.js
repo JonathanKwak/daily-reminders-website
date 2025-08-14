@@ -101,7 +101,7 @@ function addTask(name) {
     // created-task-template
     let $clone = $($("#created-task-template").html());
 
-    $clone.find(".delete-button").click(deleteTask)
+    $clone.find("#delete-button").click(deleteTask)
 
     $("#created-task-list").append($clone)
     $("#empty-message").hide()
