@@ -5,7 +5,7 @@
    Text: 223, 223, 223
 */
 
-h1, h2, button, p, label, hr {
+h1, h2, button, p, label, hr, select, input {
     color: rgba(223, 223, 223);
     font-family: "Work Sans", sans-serif;
 }
@@ -101,8 +101,8 @@ p, h1, h2 {
     border-color: rgba(223, 223, 223, 0);
     border-radius: 4px;
     padding: 0;
-    height: 1.4rem;
-    width: 1.4rem;
+    height: 1.5rem;
+    width: 1.5rem;
     color: rgb(223, 223, 223);
     text-transform: uppercase;
     background-color: rgba(26, 26, 26);
@@ -172,4 +172,16 @@ p, h1, h2 {
 
 #show-reminders {
     left: 100px;
+}
+
+select {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+
+    min-height: 1.5rem;
+}
+
+#task-count-adjustment {
+    width: 1.5rem
 }
