@@ -114,7 +114,7 @@ p, h1, h2 {
 .created-task {
     flex-direction: row;
     display: flex;
-    padding-right: 16px;
+    gap: 4px;
 }
 
 .task-button:hover {
@@ -180,6 +180,7 @@ select {
     -moz-appearance: none;
 
     min-height: 1.5rem;
+    max-width: 8rem;
 }
 
 #task-name {
@@ -189,5 +190,5 @@ select {
 }
 
 #task-count-adjustment {
-    width: 1.5rem
+    width: 2rem
 }
