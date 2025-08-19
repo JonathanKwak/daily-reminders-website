@@ -97,9 +97,9 @@ function deleteTask() {
 
 // create a singular task
 // more data will be provided later in development
-function addTask(name) {
+function addTask() {
     // created-task-template
-    let $clone = $($("#created-task-template").html());
+    let $clone = $("#created-task-template").clone();
     
     $clone.find("#delete-button").click(deleteTask)
 
@@ -116,7 +116,7 @@ function onDocumentReady() {
     createTodaysTask("Make the world a better place", 1);
     createTodaysTask("Another activity which we must do", 2);
 
-    $("#add-button").click(addTask)
+    $("#add-button").click(addTask);
     $(".checkbox").click(checkboxClicked);
 }
 
