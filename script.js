@@ -60,6 +60,10 @@ function updateTimer() {
     $("#date-title").text(full_str);
 };
 
+function updateTasks() {
+    
+};
+
 // this is for today's tasks
 // gotta get the data from localStorage or something
 function createTodaysTask(name, count) {
@@ -100,7 +104,10 @@ function deleteTask() {
 function addTask() {
     // created-task-template
     let $clone = $("#created-task-template").clone();
-    
+\
+
+
+
     $clone.find("#delete-button").click(deleteTask)
 
     $("#created-task-list").append($clone)
