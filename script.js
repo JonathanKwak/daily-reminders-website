@@ -1,3 +1,8 @@
+const tasks = [
+    {title: "Do laundry", count: 3},
+    {title: "Misc. tasks", count: 1}
+]
+
 function checkboxClicked() {
     //$(this).siblings(".secondary-text").toggleClass("strikethrough");
     $(this).toggleClass("completed-checkbox");
@@ -61,7 +66,11 @@ function updateTimer() {
 };
 
 function updateTasks() {
-    
+    $(".added-task").remove();
+
+    for (const { title, count } of tasks) {
+        createTodaysTask(title, count)
+    };
 };
 
 // this is for today's tasks
@@ -81,6 +90,8 @@ function createTodaysTask(name, count) {
         .attr("original-text", name)
         .attr("task-count", count)
         .text(`${name} (0/${count})`);
+
+    $clone.addClass("added-task");
 
     $("#task-list").append($clone);
 };
@@ -103,25 +114,30 @@ function deleteTask() {
 // more data will be provided later in development
 function addTask() {
     // created-task-template
-    let $clone = $("#created-task-template").clone();
-\
-
-
-
+    let $clone = $($("#created-task-template").html());
+    
     $clone.find("#delete-button").click(deleteTask)
+    $clone.find("#task-name").on("change", function() {
+        // something here
+    });
+    $clone.find("task-count-adjustment").on("input", function() {
+        // something here
+    });
+
+    $("#empty-message").hide()
 
     $("#created-task-list").append($clone)
-    $("#empty-message").hide()
+
+    tasks.push({ title: toString($clone.find("#task-name").val()), count: 2 });
+
+    updateTasks();
 }
 
 function onDocumentReady() {
     updateTimer();
+    updateTasks();
 
     $("#empty-message").show()
-
-    createTodaysTask("Do laundry", 3);
-    createTodaysTask("Make the world a better place", 1);
-    createTodaysTask("Another activity which we must do", 2);
 
     $("#add-button").click(addTask);
     $(".checkbox").click(checkboxClicked);
