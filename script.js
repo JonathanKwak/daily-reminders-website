@@ -1,7 +1,9 @@
-const tasks = [
-    {title: "Do laundry", count: 3},
-    {title: "Misc. tasks", count: 1}
-]
+// const tasks = [
+//     {title: "Do laundry", count: 3},
+//     {title: "Misc. tasks", count: 1}
+// ]
+
+const tasks = new Map();
 
 function checkboxClicked() {
     //$(this).siblings(".secondary-text").toggleClass("strikethrough");
@@ -68,8 +70,8 @@ function updateTimer() {
 function updateTasks() {
     $(".added-task").remove();
 
-    for (const { title, count } of tasks) {
-        createTodaysTask(title, count)
+    for (const data of tasks.values()) {
+        createTodaysTask(data.title, data.count)
     };
 };
 
@@ -118,18 +120,37 @@ function addTask() {
     
     $clone.find("#delete-button").click(deleteTask)
     $clone.find("#task-name").on("change", function() {
-        // something here
+        // update the tasks list
+        
+        const data = tasks.get($clone);
+        data.title = this.value;
+
+        updateTasks();
     });
-    $clone.find("task-count-adjustment").on("input", function() {
-        // something here
+    $clone.find("#task-count-adjustment").on("input", function() {
+        // update the tasks list
+
+        const data = tasks.get($clone);
+        data.count = this.value
+
+        updateTasks();
+    });
+    $clone.find("#frequency-select").on("input", function() {
+        // update something else? todo
     });
 
     $("#empty-message").hide()
 
     $("#created-task-list").append($clone)
 
-    tasks.push({ title: toString($clone.find("#task-name").val()), count: 2 });
+    console.log($clone.find("#task-name").val());
+    console.log($clone.find("#task-count-adjustment").val());
 
+    tasks.set($clone, {
+        title: $clone.find("#task-name").val(),
+        count: $clone.find("#task-count-adjustment").val(),
+    })
+    
     updateTasks();
 }
 
