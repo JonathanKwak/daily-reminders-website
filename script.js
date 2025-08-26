@@ -69,14 +69,18 @@ function updateTimer() {
 
 function updateTasks() {
     $(".added-task").remove();
+    const storageTasks = []; // for localStorage use, JSON stringify later
 
     for (const data of tasks.values()) {
-        createTodaysTask(data.title, data.count)
+        createTodaysTask(data.title, data.count);
+        storageTasks.push(data);
     };
+
+    console.log("updating tasks, JSONing and all")
+    localStorage.setItem("tasks", JSON.stringify(storageTasks));
+    console.log(JSON.parse(localStorage.getItem("tasks")));
 };
 
-// this is for today's tasks
-// gotta get the data from localStorage or something
 function createTodaysTask(name, count) {
     // clone template
     let $clone = $($("#cell-template").html()); // works if html is complete <li>...</li>
@@ -142,10 +146,7 @@ function addTask() {
     $("#empty-message").hide()
 
     $("#created-task-list").append($clone)
-
-    console.log($clone.find("#task-name").val());
-    console.log($clone.find("#task-count-adjustment").val());
-
+    
     tasks.set($clone, {
         title: $clone.find("#task-name").val(),
         count: $clone.find("#task-count-adjustment").val(),
@@ -157,6 +158,10 @@ function addTask() {
 function onDocumentReady() {
     updateTimer();
     updateTasks();
+
+    // some really funky JS syntax... the "??" is an OR operator for when the thing is null
+    const loadedData = JSON.parse(localStorage.getItem("tasks")) ?? [];
+    console.log(loadedData)
 
     $("#empty-message").show()
 
