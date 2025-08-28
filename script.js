@@ -3,7 +3,7 @@
 //     {title: "Misc. tasks", count: 1}
 // ]
 
-const tasks = new Map();
+var tasks = new Map();
 
 function checkboxClicked() {
     //$(this).siblings(".secondary-text").toggleClass("strikethrough");
@@ -156,14 +156,19 @@ function addTask() {
 }
 
 function onDocumentReady() {
+    // some really funky JS syntax... the "??" is an OR operator for when the thing is null
+    const loadedData = JSON.parse(localStorage.getItem("tasks")) ?? [];
+    console.log("Loading localStorage data...");
+    console.log(loadedData);
+
+
+    // TO FIX: we need to convert loaded data into valid Map data
+    tasks = new Map(loadedData.map(task => [task.title, task]));
+
     updateTimer();
     updateTasks();
 
-    // some really funky JS syntax... the "??" is an OR operator for when the thing is null
-    const loadedData = JSON.parse(localStorage.getItem("tasks")) ?? [];
-    console.log(loadedData)
-
-    $("#empty-message").show()
+    $("#empty-message").show();
 
     $("#add-button").click(addTask);
     $(".checkbox").click(checkboxClicked);
